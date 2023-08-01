@@ -1,0 +1,30 @@
+<%- include("partials/header"); %>
+<div>
+  <h1>Home</h1>
+  <p><%= pageText %></p>
+
+  
+    <% postDefault.forEach(posts => { %>
+    <ul>
+      <li>
+        <form action="/post/<%= posts._id %>" method="post" class="showPost">
+          <input type="hidden" name="title" value="<%= posts.title %>">
+          <input type="hidden" name="content" value="<%= posts.content %>">
+            <h2 name="title">
+              <%=posts.title%>
+            </h2> 
+           <div name="content">
+              <%=posts.content.substring(1, 255)%> 
+            <button type="submit" class="readMore">
+              <a>..read more</a>
+            </button>
+           </div>
+        </form>
+      </li>
+    </ul> 
+     
+    <%}); %>
+
+ 
+</div>
+<%- include("partials/footer"); %>
