@@ -1,8 +1,5 @@
-
-
-
- 
-</main>
+/**
+ * 
 <footer>
   <div class="footer-padding">
   
@@ -11,6 +8,4 @@
     <p>Made with ❤️</p>
   </div>
 </footer>
-
-</body>
-</html>
+ */
