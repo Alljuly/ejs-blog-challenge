@@ -1,6 +1,6 @@
 //jshint esversion:6
 const express = require("express");
-const Router = require("./api/routes/postRouter");
+const Router = require("./routes/postRouter.js");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const connectDB = require("./config/database.js");

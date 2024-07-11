@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 		mongoose.connect("mongodb://127.0.0.1:27017/BlogDB");
 		console.log("Atlas mongo connect");
 	} catch (error) {
-		console.log("aaa", error.message);
+		console.error("Error:", error.message);
 	}
 }
 
