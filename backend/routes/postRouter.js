@@ -1,17 +1,13 @@
 const express = require("express");
 const Router = express.Router();
-const jsonData = require("../config/posts.json");
-const { homeStartingContent, aboutContent, contactContent, firstPublish } =
-	jsonData.reduce((acc, obj) => {
-		return { ...acc, ...obj };
-	}, {});
-const Publish = require("../models/posts");
+
+const Publish = require("../schemas/publishSchema");
 const publish = new Publish(firstPublish);
 
 const postDefault = [publish];
 
 Router.get("/", async (req, res) => {
-	// const content = controller.findAllPosts()
+	// const content = publishController.findAllPosts()
 	await Publish.find({}).then((findPosts) => {
 		if (findPosts.length === 0) {
 			Publish.insertMany(postDefault)
@@ -23,6 +19,9 @@ Router.get("/", async (req, res) => {
 				});
 		}
 	});
+
+	const { homeStartingContent, postDefault } =
+		await publishController.findPageText("homeStartingContent");
 
 	res.render("home", {
 		pageText: homeStartingContent,

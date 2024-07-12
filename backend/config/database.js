@@ -8,7 +8,7 @@ async function connectDB() {
 		await mongoose.connect(process.env.DATABASE);
 		console.log("Atlas mongo connect");
 	} catch (error) {
-		console.error("Error:", error.message);
+		console.logo("Error:", error.message);
 	}
 }
 
@@ -16,4 +16,5 @@ async function disconnDB() {
 	await mongoose.disconnect();
 }
 
-(module.exports = connectDB), disconnDB;
+module.exports = connectDB;
+
